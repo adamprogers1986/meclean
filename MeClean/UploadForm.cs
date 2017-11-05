@@ -41,10 +41,12 @@ namespace MeClean
                 foreach (string row in rows)
                 {
 
-
+                    
                     foreach (string column in row.Split(','))
                     {
-                        var CsvList = new List<Csv>();
+                      //  int getit = column.Max();
+                       // MessageBox.Show(getit.ToString());
+                          var CsvList = new List<Csv>();
                         CsvList.Add(new Csv {
                             rownumber = rowindex,
                             columnnumber = columnindex,
