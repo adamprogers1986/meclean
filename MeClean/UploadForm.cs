@@ -31,40 +31,56 @@ namespace MeClean
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string filename = openFileDialog1.FileName;
-                List<string> rows = File.ReadAllLines(filename).ToList();
+                string[] rows = File.ReadAllLines(filename);
 
-                int max = Int32.MinValue;
+                
+
 
                 int columnindex = 0;
                 int rowindex = 0;
-                
+                int index = 0;
                 foreach (string row in rows)
                 {
 
-                    
-                    foreach (string column in row.Split(','))
+                    string[] columns = row.Split(',');
+
+                    int? maxVal = null; //nullable so this works even if you have all super-low negatives
+                   
+                    //  foreach (string column in columns)
+                    for ( int i = 0; i < columns.Length; i++)
                     {
-                      //  int getit = column.Max();
-                       // MessageBox.Show(getit.ToString());
-                          var CsvList = new List<Csv>();
+
+                        int thisNum = i;
+                        if (!maxVal.HasValue || thisNum > maxVal.Value)
+                        {
+                            maxVal = thisNum;
+                            index = i;
+                           
+                        }
+
+                        var CsvList = new List<Csv>();
                         CsvList.Add(new Csv {
                             rownumber = rowindex,
-                            columnnumber = columnindex,
-                            columncontent = column,
+                            columnnumber = i,
+                            columncontent = columns[i],
                             postcodecontent = address.Postcode
 
 
                         });
                         Csv firstCsv = CsvList[0];
-                        MessageBox.Show(firstCsv.rownumber.ToString() + " " + firstCsv.columncontent.ToString());
+                        
                         columnindex++;
+                        //MessageBox.Show(columnindex.Max().tostring());
                     }
+
+                    
                     columnindex = 0;
                     rowindex++;
+                    MessageBox.Show(index.ToString());
                 }
+                
 
 
-               
 
 
             }
