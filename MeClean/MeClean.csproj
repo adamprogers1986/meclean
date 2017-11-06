@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
-    <Compile Include="Csv.cs" />
     <Compile Include="UploadForm.cs">
       <SubType>Form</SubType>
     </Compile>

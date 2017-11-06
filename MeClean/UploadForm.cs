@@ -33,9 +33,6 @@ namespace MeClean
                 string filename = openFileDialog1.FileName;
                 string[] rows = File.ReadAllLines(filename);
 
-                
-
-
                 int columnindex = 0;
                 int rowindex = 0;
                 int highestindex = 0;
@@ -58,8 +55,8 @@ namespace MeClean
                            
                         }
 
-                        var CsvList = new List<Csv>();
-                        CsvList.Add(new Csv {
+                        var AddressList = new List<Address>();
+                        AddressList.Add(new Address {
                             rownumber = rowindex,
                             columnnumber = i,
                             columncontent = columns[i],

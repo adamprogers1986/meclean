@@ -18,6 +18,34 @@ namespace MeClean
         protected string city;
         protected string county;
         protected string _postcode;
+        protected string _addresscolumn;
+
+        public int rownumber { get; set; }
+        public int columnnumber { get; set; }
+        public string postcodecontent { get; set; }
+        public int postcodecolumn { get; set; }
+        public string columncontent
+        {
+            get
+            {
+                return _addresscolumn;
+
+            }
+            set
+            {
+                Address address = new Address();
+                if (value == address.Postcode)
+                {
+                    _addresscolumn = "";
+                }
+                else
+                {
+                    _addresscolumn = value;
+                }
+
+
+            }
+        }
 
         public string Addressline1
         {
