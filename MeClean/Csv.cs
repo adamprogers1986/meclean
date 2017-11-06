@@ -13,7 +13,7 @@ namespace MeClean
         public int rownumber{get; set;}
         public int columnnumber { get; set; }
         public string postcodecontent { get; set; }
-        public string postcodecolumn { get; set; }
+        public int postcodecolumn { get; set; }
         public string columncontent {
             get
             {

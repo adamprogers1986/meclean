@@ -38,7 +38,7 @@ namespace MeClean
 
                 int columnindex = 0;
                 int rowindex = 0;
-                int index = 0;
+                int highestindex = 0;
                 foreach (string row in rows)
                 {
 
@@ -54,7 +54,7 @@ namespace MeClean
                         if (!maxVal.HasValue || thisNum > maxVal.Value)
                         {
                             maxVal = thisNum;
-                            index = i;
+                            highestindex = i;
                            
                         }
 
@@ -63,11 +63,11 @@ namespace MeClean
                             rownumber = rowindex,
                             columnnumber = i,
                             columncontent = columns[i],
-                            postcodecontent = address.Postcode
-
+                            postcodecontent = address.Postcode,
+                            postcodecolumn = highestindex + 1
 
                         });
-                        Csv firstCsv = CsvList[0];
+                       // Csv firstCsv = CsvList[0];
                         
                         columnindex++;
                         //MessageBox.Show(columnindex.Max().tostring());
@@ -76,7 +76,9 @@ namespace MeClean
                     
                     columnindex = 0;
                     rowindex++;
-                    MessageBox.Show(index.ToString());
+
+                   
+                    MessageBox.Show(highestindex.ToString());
                 }
                 
 
